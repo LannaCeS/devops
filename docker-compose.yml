@@ -1,0 +1,21 @@
+#Docker compose: organiza como executar o docker (roda tudo com uma linha de comando)
+#com várias aplicações, orquestra a sequência das execuções, considerando dependências entre as aplicações
+#version: '3.8'
+
+services:
+  app:
+    build: . #imagem a partir do docker file no root do projeto
+    container_name: ellis_api
+    ports:
+      - "8000:8000"
+
+    #As alterações feitas no vscode serão aplicadas dentro do contêiner
+    volumes:
+      - .:/app
+
+    #Aqui seria o lugar para inserir API keys, por exemplo
+    #environment:
+    #  - PYTHONUNBUFFERED=1 #logs do python aparecem imediatamente
+
+#rodar com o comando: docker compose up -> build e run em um só
+#localhost:8000/docs

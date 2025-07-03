@@ -1,0 +1,3 @@
+#Pacotes que não queremos que sejam carregados no contêiner
+venv
+__pycache__
